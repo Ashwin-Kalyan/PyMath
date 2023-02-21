@@ -1,5 +1,10 @@
 global pi
 pi = 3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679
+global e
+e = 2.7182818284590452353602874713526624977572470936999595749669676277240766303535475945713821785251664274
+
+# add support for degrees, inverse funcs, and hyperbolic inverse funcs
+# rewrite if statements as match case
 
 
 def factorial(num):
@@ -16,6 +21,8 @@ def sin(x):
         elif x == pi:
             return 0
         elif x == 2 * pi:
+            return 0
+        elif x == (3 * pi) / 2:
             return 0
         elif x == pi / 2:
             return 1
@@ -54,6 +61,8 @@ def sin(x):
             return 1
         elif y == pi / 2:
             return 0
+        elif y == (3 * pi) / 2:
+            return 0
         elif y == pi:
             return -1
         else:
@@ -91,6 +100,8 @@ def sin(x):
             return 1
         elif z == pi / 2:
             return 0
+        elif z == (3 * pi) / 2:
+            return 0
         elif z == pi:
             return -1
         else:
@@ -122,6 +133,8 @@ def cos(x):
         elif x == 2 * pi:
             return 1
         elif x == pi / 2:
+            return 0
+        elif x == (3 * pi) / 2:
             return 0
         elif x == pi:
             return -1
@@ -161,6 +174,8 @@ def cos(x):
             return 1
         elif y == pi / 2:
             return 0
+        elif y == (3 * pi) / 2:
+            return 0
         elif y == pi:
             return -1
         else:
@@ -199,6 +214,8 @@ def cos(x):
             return 1
         elif z == pi / 2:
             return 0
+        elif z == (3 * pi) / 2:
+            return 0
         elif z == pi:
             return -1
         else:
@@ -225,16 +242,110 @@ def cos(x):
 
 
 def tan(x):
-    return sin(x) / cos(x)
+    if cos(x) == 0:
+        return "undefined"
+    else:
+        return sin(x) / cos(x)
 
 
 def csc(x):
-    return 1 / sin(x)
+    if sin(x) == 0:
+        return "undefined"
+    else:
+        return 1 / sin(x)
 
 
 def sec(x):
-    return 1 / cos(x)
+    if cos(x) == 0:
+        return "undefined"
+    else:
+        return 1 / cos(x)
 
 
 def cot(x):
-    return 1 / tan(x)
+    if sin(x) == 0:
+        return "undefined"
+    else:
+        return cos(x) / sin(x)
+
+
+def asin(x):
+    pass
+
+
+def acos(x):
+    pass
+
+
+def atan(x):
+    pass
+
+
+def acsc(x):
+    pass
+
+
+def asec(x):
+    pass
+
+
+def acot(x):
+    pass
+
+
+def asinh(x):
+    pass
+
+
+def acosh(x):
+    pass
+
+
+def atanh(x):
+    pass
+
+
+def acsch(x):
+    pass
+
+
+def asech(x):
+    pass
+
+
+def acoth(x):
+    pass
+
+
+def sinh(x):
+    ans = (e**x - e**-x) / 2
+    return ans
+
+
+def cosh(x):
+    ans = (e**x + e**-x) / 2
+    return ans
+
+
+def tanh(x):
+    ans = sinh(x) / cosh(x)
+    return ans
+
+
+def csch(x):
+    if x == 0:
+        return "undefined"
+    ans = 1 / sinh(x)
+    return ans
+
+
+def sech(x):
+    ans = 1 / cosh(x)
+    return ans
+
+
+def coth(x):
+    if x == 0:
+        return "undefined"
+    ans = 1 / tanh(x)
+    return ans
