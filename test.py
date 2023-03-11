@@ -1,7 +1,4 @@
 import trigonometry
-import base
+import utils
 
-print(base.ln_2(8))
-print(base.ln(8))
-print(trigonometry.atanh(.459))
-print(trigonometry.acoth(1.459))
+print(trigonometry.sin(.56, "RAD"))
